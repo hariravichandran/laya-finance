@@ -2,7 +2,7 @@
 
 A fine-tuned version of [Laya](https://github.com/NandhaKishorM/laya) (ModernBERT-large decision encoder) for financial text decisions such as sentiment, topic and stance.
 
-Derived from the original Laya (Apache-2.0). Weights: coming soon.
+Derived from the original Laya (Apache-2.0), fine-tuned on public financial datasets and a private corpus. Weights: coming soon.
 
 ## Usage
 
