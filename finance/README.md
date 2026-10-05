@@ -30,6 +30,6 @@ Held-out accuracy on public sentiment test sets (fp32, about 8-13 ms per item on
 | ProsusAI/finbert | 0.893 | 0.725 | 0.472 |
 | Laya (original, zero-shot) | 0.879 | 0.767 | 0.528 |
 | Laya-Finance | **0.909** | 0.899 | 0.736 |
-| 20B open LLM, zero-shot (about 200x slower) | 0.812 | 0.740 | **0.824** |
+| gpt-oss-20b, zero-shot (about 200x slower) | 0.812 | 0.740 | **0.824** |
 
 PhraseBank is the fair comparison with FinBERT, which was trained on it. The Twitter and FiQA gains are partly from in-domain training data that FinBERT never saw, and the zero-shot LLM still wins on FiQA. Results on further tasks will be added with the final checkpoint.
