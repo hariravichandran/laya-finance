@@ -1,11 +1,8 @@
 # Laya-Finance
 
-Laya (ModernBERT-large decision encoder) fine-tuned for financial text decisions:
-sentiment, topic, central-bank stance, headline direction and finance terminology,
-in a single forward pass (about 8-13 ms per item on an iGPU, fp32).
+A fine-tuned version of [Laya](https://github.com/NandhaKishorM/laya) (ModernBERT-large decision encoder) for financial text decisions such as sentiment, topic and stance.
 
-Trained on public financial datasets plus a private corpus. The training recipe,
-data and labels are not published.
+Derived from the original Laya (Apache-2.0). Weights: coming soon.
 
 ## Usage
 
@@ -23,22 +20,3 @@ print(out[0]["answers"]["a"]["probabilities"])
 ```
 
 Keep the `criteria` order fixed: it defines the label index.
-
-## Results (held-out accuracy)
-
-| Model | PhraseBank | Twitter | FiQA |
-|---|---|---|---|
-| ProsusAI/finbert | 0.893 | 0.725 | 0.472 |
-| Laya zero-shot | 0.879 | 0.767 | 0.528 |
-| Laya-Finance (sentiment fine-tune) | **0.909** | 0.899 | 0.736 |
-| gpt-oss:20b zero-shot (about 200x slower) | 0.812 | 0.740 | **0.824** |
-
-PhraseBank is the fair comparison with FinBERT. The Twitter and FiQA gains are partly
-in-domain training. A zero-shot LLM still wins on FiQA. Multi-task results will be added
-with the final checkpoint.
-
-## Limits
-
-- Not a trading signal. No return or Sharpe benefit is claimed or measured.
-- Weights are not yet uploaded.
-- Source datasets carry their own licenses (Financial PhraseBank is CC BY-NC-SA), which may restrict commercial use of the weights.
