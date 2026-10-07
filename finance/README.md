@@ -4,7 +4,9 @@ A fine-tuned version of [Laya](https://github.com/NandhaKishorM/laya) (ModernBER
 
 Weights: https://huggingface.co/hravi/laya-finance
 
-Derived from the original Laya (Apache-2.0). Fine-tuned on public financial datasets and a private corpus. Same license as the original. This is a preliminary checkpoint; an improved one is planned.
+Derived from the original Laya (Apache-2.0). Fine-tuned on public financial datasets and a private corpus. This is a preliminary checkpoint; an improved one is planned.
+
+**Intended use: educational and research purposes only. Not for commercial use.** The restriction comes from the terms of some of the training data. The original Laya code and weights remain under Apache-2.0.
 
 ## Usage
 
