@@ -10,11 +10,11 @@ Weights: https://huggingface.co/hravi/laya-finance
 
 ## Highlights
 
-- **Beats ProsusAI/FinBERT on all three sentiment sets**: Financial PhraseBank 0.905 vs 0.893, Twitter 0.881 vs 0.725, FiQA 0.674 vs 0.472.
-- **Large gains over original Laya** on every task (table below): topic +37.6 points, trading approach +33.9, headline direction +19.0, central-bank stance +19.5, terminology +22.0.
+- **Beats ProsusAI/FinBERT on all three sentiment sets**: Financial PhraseBank 0.922 vs 0.893, Twitter 0.884 vs 0.725, FiQA 0.731 vs 0.472.
+- **Large gains over original Laya** on every task (table below): topic +38.4 points, trading approach +30.8, headline direction +19.2, central-bank stance +20.9, terminology +24.1.
 - **Does more than FinBERT**: FinBERT only handles sentiment; this model also covers five other financial text tasks with one 421M-parameter encoder.
-- **About 100x faster than a zero-shot 20B LLM** (milliseconds vs 2 to 3 s per item), and ahead of `gpt-oss-20b` on 5 of the 8 benchmark rows.
-- **Honest limits**: the zero-shot LLM is still better on FiQA, slightly better on central-bank stance and terminology accuracy, and ahead on trading-approach macro-F1.
+- **About 100x faster than a zero-shot 20B LLM** (milliseconds vs 2 to 3 s per item), and ahead of `gpt-oss-20b` on 6 of the 8 benchmark rows.
+- **Honest limits**: the zero-shot LLM is still better on FiQA, slightly better on central-bank stance, and ahead on trading-approach and terminology macro-F1.
 
 ## Improvement over original Laya
 
@@ -22,14 +22,14 @@ Held-out test accuracy; the original Laya is the same model used zero-shot, with
 
 | Task | Original Laya | Laya-Finance | Change |
 |---|---|---|---|
-| Sentiment, PhraseBank | 0.879 | **0.905** | +2.6 |
-| Sentiment, Twitter | 0.767 | **0.881** | +11.4 |
-| Sentiment, FiQA | 0.528 | **0.674** | +14.6 |
-| Topic | 0.477 | **0.853** | +37.6 |
-| Headline direction | 0.758 | **0.948** | +19.0 |
-| Central-bank stance | 0.458 | **0.653** | +19.5 |
-| Finance terminology (domain) | 0.604 | **0.824** | +22.0 |
-| Trading approach (style) | 0.442 | **0.781** | +33.9 |
+| Sentiment, PhraseBank | 0.879 | **0.922** | +4.3 |
+| Sentiment, Twitter | 0.767 | **0.884** | +11.7 |
+| Sentiment, FiQA | 0.528 | **0.731** | +20.3 |
+| Topic | 0.477 | **0.861** | +38.4 |
+| Headline direction | 0.758 | **0.950** | +19.2 |
+| Central-bank stance | 0.458 | **0.667** | +20.9 |
+| Finance terminology (domain) | 0.604 | **0.845** | +24.1 |
+| Trading approach (style) | 0.442 | **0.750** | +30.8 |
 
 ## Full benchmarks
 
@@ -37,19 +37,19 @@ Held-out test accuracy, fp32, one forward pass per item. The zero-shot LLM takes
 
 | Task | ProsusAI/finbert | Original Laya (zero-shot) | Laya-Finance | gpt-oss-20b (zero-shot) |
 |---|---|---|---|---|
-| Sentiment, PhraseBank | 0.893 | 0.879 | **0.905** | 0.812 |
-| Sentiment, Twitter | 0.725 | 0.767 | **0.881** | 0.740 |
-| Sentiment, FiQA | 0.472 | 0.528 | 0.674 | **0.824** |
-| Topic | n/a | 0.477 | **0.853** | 0.652 |
-| Headline direction | n/a | 0.758 | **0.948** | 0.784 |
-| Central-bank stance | n/a | 0.458 | 0.653 | **0.680** |
-| Finance terminology (domain) | n/a | 0.604 | 0.824 | **0.834** |
-| Trading approach (style) | n/a | 0.442 | **0.781** | 0.728 |
+| Sentiment, PhraseBank | 0.893 | 0.879 | **0.922** | 0.812 |
+| Sentiment, Twitter | 0.725 | 0.767 | **0.884** | 0.740 |
+| Sentiment, FiQA | 0.472 | 0.528 | 0.731 | **0.824** |
+| Topic | n/a | 0.477 | **0.861** | 0.652 |
+| Headline direction | n/a | 0.758 | **0.950** | 0.784 |
+| Central-bank stance | n/a | 0.458 | 0.667 | **0.680** |
+| Finance terminology (domain) | n/a | 0.604 | **0.845** | 0.834 |
+| Trading approach (style) | n/a | 0.442 | **0.750** | 0.728 |
 
 Notes:
 
 - PhraseBank is the fair FinBERT comparison, since FinBERT was trained on it. The Twitter and FiQA gains are partly from in-domain training data FinBERT never saw.
-- On trading-approach macro-F1 the zero-shot LLM is ahead (0.670 vs 0.627), because Laya-Finance is weaker on the rarest classes.
+- On trading-approach macro-F1 the zero-shot LLM is ahead (0.670 vs 0.628), because Laya-Finance is weaker on the rarest classes. On terminology the LLM is also ahead on macro-F1 (0.805 vs 0.765), while Laya-Finance is ahead on accuracy.
 - Terminology and trading-approach test labels were produced and cross-checked by strong language models, not human annotators, so treat those two rows as indicative.
 - FinBERT only supports sentiment, so other cells are marked n/a.
 
@@ -79,7 +79,7 @@ Keep the `criteria` order fixed: it defines the label index. The model answers a
 - English text only; short passages (a few hundred words at most).
 - Classifies text. It makes no claim to improve trading returns, and nothing here is financial advice.
 - Scores come from one training run, so differences of about one point are within noise.
-- This is a preliminary checkpoint; an improved one is planned.
+- Trading-approach accuracy is 0.750 here versus 0.781 for the first checkpoint, with macro-F1 about the same (0.628 vs 0.627); the rarest classes have only 4 to 10 test items each, so their scores are noisy.
 
 ## Origin
 
