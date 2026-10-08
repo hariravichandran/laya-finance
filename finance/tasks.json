@@ -1,0 +1,86 @@
+{
+ "sentiment": {
+  "type": "choice",
+  "instructions": "What is the sentiment of this financial text toward the stock price or company outlook?",
+  "criteria": {
+   "bearish": "negative for the stock price or outlook",
+   "neutral": "no clear price impact, or purely factual",
+   "bullish": "positive for the stock price or outlook"
+  }
+ },
+ "topic": {
+  "type": "choice",
+  "instructions": "What type of financial news event is this?",
+  "criteria": {
+   "analyst_update": "analyst rating or price target change",
+   "central_banks": "Fed or central bank policy",
+   "company_news": "company or product news",
+   "treasuries_debt": "treasuries or corporate debt",
+   "dividend": "dividend announcement or change",
+   "earnings": "earnings results or guidance",
+   "energy_oil": "energy or oil market",
+   "financials": "banks and financial sector",
+   "currencies": "currency or FX move",
+   "general_opinion": "general news or opinion",
+   "metals": "gold, metals or materials",
+   "ipo": "IPO",
+   "legal_regulation": "legal or regulatory matter",
+   "mna": "mergers, acquisitions or investments",
+   "macro": "macroeconomic data",
+   "markets": "broad market wrap",
+   "politics": "politics or geopolitics",
+   "personnel": "executive or personnel change",
+   "stock_commentary": "commentary on a stock",
+   "stock_movement": "a stock moving up or down"
+  }
+ },
+ "fomc": {
+  "type": "choice",
+  "instructions": "What is the monetary policy stance of this central bank text?",
+  "criteria": {
+   "dovish": "suggests easing or accommodative policy",
+   "hawkish": "suggests tightening or restrictive policy",
+   "neutral": "no clear policy direction"
+  }
+ },
+ "headline": {
+  "type": "noul",
+  "instructions": "Does the news headline talk about price?"
+ },
+ "term_domain": {
+  "type": "choice",
+  "instructions": "Which area of finance does this passage's terminology belong to?",
+  "criteria": {
+   "equity_valuation": "valuing stocks, equity research, fundamentals, multiples",
+   "fixed_income": "bonds, yields, duration, credit spreads, term structure",
+   "derivatives": "options, futures, swaps, pricing and greeks",
+   "portfolio_theory": "portfolio construction, CAPM, factors, allocation, performance measurement",
+   "risk_management": "VaR, drawdown, hedging, position sizing, tail risk",
+   "corporate_finance": "capital structure, M&A, budgeting, dividends, financing",
+   "accounting_reporting": "financial statements, GAAP/IFRS, earnings quality, audit",
+   "macro_monetary": "central banks, inflation, rates, GDP, economic cycles",
+   "market_structure": "trading venues, order types, liquidity, execution, microstructure",
+   "technical_analysis": "chart patterns, indicators, trend and momentum rules, backtested trading systems",
+   "quant_methods": "statistics, econometrics, machine learning, time series, optimization",
+   "behavioral_finance": "biases, sentiment, investor psychology",
+   "banking_credit": "lending, bank regulation, credit risk, insurance",
+   "other": "not clearly finance terminology"
+  }
+ },
+ "trading_style": {
+  "type": "choice",
+  "instructions": "Which kind of trading approach does this passage mainly describe?",
+  "criteria": {
+   "trend_following": "following sustained price trends with moving averages, channels or trend filters",
+   "mean_reversion": "fading extremes, oversold/overbought bounces, reversion to a mean",
+   "breakout_momentum": "breakouts, range expansion, momentum or relative-strength ranking",
+   "options_volatility": "options strategies, implied/realized volatility, volatility trading",
+   "spreads_arbitrage": "pairs, spreads, intermarket relationships, arbitrage",
+   "seasonality_cycles": "calendar effects, seasonality, market cycles and timing",
+   "risk_position_sizing": "stops, position sizing, drawdown control, hedging, money management",
+   "system_validation": "backtesting, optimization, walk-forward, overfitting, performance evaluation",
+   "indicator_construction": "building or explaining a technical indicator or chart tool",
+   "commentary_education": "market commentary, platform/software, interviews or general trading education"
+  }
+ }
+}

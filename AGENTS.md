@@ -4,6 +4,8 @@ Context for AI coding assistants (Claude Code, Codex, Cursor, Copilot, Gemini CL
 
 **Laya** is a fast, local, on-device decision engine. These rules mirror [CONTRIBUTING.md](CONTRIBUTING.md); the assistant-facing summary lives here because coding agents read this file automatically.
 
+> **Using the finance model (`hravi/laya-finance`) rather than editing this repo?** Read [finance/AGENTS.md](finance/AGENTS.md).
+
 ## Do NOT
 
 - Introduce a dependency on a hosted service or external API. Features must run in the user's own process or on their own hardware; a feature that only works against a hosted backend belongs in a separate integration, not here.
