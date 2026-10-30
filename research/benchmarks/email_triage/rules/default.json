@@ -1,0 +1,23 @@
+{
+  "name": "default",
+  "rules": [
+    {"id": "lure-gift-cards", "when": {"body_contains": ["gift card", "gift cards", "itunes card"]},
+     "set": {"is_phishing": true, "is_spam": true, "category": "security", "needs_reply": false}},
+    {"id": "lure-verify-account", "when": {"body_contains": ["verify your details within", "account will be closed", "password expires today"]},
+     "set": {"is_phishing": true, "category": "security", "needs_reply": false}},
+    {"id": "lure-bank-change", "when": {"subject_contains": ["bank details changed", "change of payment account"]},
+     "set": {"is_phishing": true, "category": "security", "needs_reply": false}},
+    {"id": "bulk-unsubscribe", "when": {"body_contains": ["unsubscribe", "you subscribed", "you are receiving this"]},
+     "set": {"is_spam": true, "needs_reply": false}},
+    {"id": "billing-keywords", "when": {"subject_contains": ["invoice", "refund", "charged", "payment declined"]},
+     "set": {"category": "billing"}},
+    {"id": "hr-keywords", "when": {"subject_contains": ["payslip", "leave request", "vacation", "benefits enrol", "job application"]},
+     "set": {"category": "hr"}},
+    {"id": "technical-outage", "when": {"subject_contains": ["cannot log in", "down in production", "500 errors", "read-only"]},
+     "set": {"category": "technical", "urgency": 2, "needs_reply": true}},
+    {"id": "security-account-access", "when": {"subject_contains": ["account was accessed", "suspicious sign-in", "password reset"]},
+     "set": {"category": "security", "urgency": 2}},
+    {"id": "auto-reply-no-reply", "when": {"subject_contains": ["out of office", "automatic reply"]},
+     "set": {"category": "other", "needs_reply": false, "urgency": 0}}
+  ]
+}

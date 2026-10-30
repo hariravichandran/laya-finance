@@ -1,0 +1,13 @@
+{
+  "model": "/tmp/claude-1000/-home-ravichandran-Documents-GitHub/90ca73d3-b724-50ea-b514-84aca8215218/scratchpad/email_laya_folders",
+  "metrics": {
+    "n": 24,
+    "category_acc": 0.417,
+    "is_spam_acc": 0.958,
+    "is_phishing_recall": 0.0,
+    "is_phishing_false_positive_rate": 0.0,
+    "urgency_exact_acc": 0.708,
+    "urgency_within_one_acc": 1.0,
+    "needs_reply_acc": 0.833
+  }
+}

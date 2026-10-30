@@ -1,0 +1,11 @@
+{
+  "name": "example-user",
+  "rules": [
+    {"id": "billing-keywords", "when": {"subject_contains": ["invoice", "refund", "charged", "payment declined"]},
+     "set": {"category": "billing"}},
+    {"id": "our-vendor-is-trusted", "when": {"sender_domain": ["vendor.example"]},
+     "set": {"is_phishing": false, "category": "billing"}, "force": true},
+    {"id": "our-recruiter", "when": {"sender_domain": ["recruiter.example"]},
+     "set": {"category": "hr", "needs_reply": true}}
+  ]
+}
