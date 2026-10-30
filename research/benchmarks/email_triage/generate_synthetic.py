@@ -320,6 +320,13 @@ PHISH_INTENTS = [i for i in INTENTS if i["phish"]]
 SAMPLED_INTENTS = INTENTS + PHISH_INTENTS
 
 
+def _sampleable(intent, categories):
+    """An intent a folder set can teach: it files into one of the set's own folders, or it is
+    genuinely other mail. Intents with no folder in the set are left out. Labelling them Other with
+    high confidence taught the model Other as a default, and it then sent most mail there."""
+    return intent["team"] == "other" or resolve_team(intent["team"], categories) != "Other"
+
+
 def generate(n, seed, folder_set=None):
     """`n` labelled emails for one folder set. With no folder set, the six default teams.
 
@@ -335,7 +342,7 @@ def generate(n, seed, folder_set=None):
         questions = email_questions(categories={f["name"]: f["description"] for f in folder_set["folders"]})
     rows = []
     for _ in range(n):
-        intent = rng.choice(SAMPLED_INTENTS)
+        intent = rng.choice([i for i in SAMPLED_INTENTS if _sampleable(i, categories)])
         subject, body, sender = render(intent, rng)
         rows.append({
             "state": email_state(subject, body, sender),
