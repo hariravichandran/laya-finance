@@ -404,7 +404,14 @@ def generate(n, seed, folder_set=None):
         questions = email_questions(categories={f["name"]: f["description"] for f in folder_set["folders"]})
     rows = []
     for _ in range(n):
-        intent = rng.choice([i for i in SAMPLED_INTENTS if _sampleable(i, categories)])
+        # balanced: pick a folder uniformly, then an intent within it, so a folder with many
+        # templates does not swamp the rest and pull the category head toward itself
+        by_folder = {}
+        for i in SAMPLED_INTENTS:
+            if _sampleable(i, categories):
+                by_folder.setdefault(resolve_team(i["team"], categories), []).append(i)
+        folder = rng.choice(sorted(by_folder))
+        intent = rng.choice(by_folder[folder])
         subject, body, sender = render(intent, rng)
         rows.append({
             "state": email_state(subject, body, sender),
