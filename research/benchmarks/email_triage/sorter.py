@@ -55,7 +55,11 @@ def decide(answers, flagged=False, source=INBOX, folder_set=None):
     (see `folders.py`); when it is `None` the default `standard-8` set is used.
     """
     folder_set = folder_set or FO.preset("standard-8")
+    thresholds = folder_set.get("thresholds", {})
     rescue_below = folder_set.get("rescue_below", 0.2)
+    # Set by calibrate.py from labelled mail: where Outlook's errors are cut without new ones
+    phish_move = thresholds.get("phishing_move_to_junk", 0.5)
+    spam_move = thresholds.get("spam_move_to_junk", 0.5)
     category = answers["category"]["choice"]
     p_phish = answers["is_phishing"]["noul"]
     p_spam = answers["is_spam"]["noul"]
@@ -64,18 +68,18 @@ def decide(answers, flagged=False, source=INBOX, folder_set=None):
         return {"folder": source, "move": False, "classification": FOCUSED, "reason": "flagged"}
 
     if source == JUNK:
-        if p_phish >= 0.5:
+        if p_phish >= phish_move:
             return {"folder": JUNK, "move": False, "classification": OTHER, "reason": "phishing stays in junk"}
-        if p_spam >= 0.5:
+        if p_spam >= spam_move:
             return {"folder": JUNK, "move": False, "classification": OTHER, "reason": "spam stays in junk"}
         if p_spam < rescue_below:
             return {"folder": category, "move": True, "classification": _classification(category),
                     "reason": "rescued from junk"}
         return {"folder": JUNK, "move": False, "classification": OTHER, "reason": "unsure, left in junk"}
 
-    if p_phish >= 0.5:
+    if p_phish >= phish_move:
         return {"folder": JUNK, "move": True, "classification": OTHER, "reason": "phishing to junk"}
-    if p_spam >= 0.5:
+    if p_spam >= spam_move:
         return {"folder": JUNK, "move": True, "classification": OTHER, "reason": "spam to junk"}
     return {"folder": category, "move": True, "classification": _classification(category), "reason": "default"}
 
