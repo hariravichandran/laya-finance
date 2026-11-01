@@ -61,6 +61,10 @@ def main():
     parser.add_argument("--grad-accum", type=int, default=8)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--device", default="cuda", help="cuda (also ROCm), cpu, or auto")
+    parser.add_argument("--loss", default="rlcd", choices=("rlcd", "soft-ce"),
+                        help="rlcd: policy gradient plus soft cross-entropy; soft-ce: soft cross-entropy only")
+    parser.add_argument("--no-shuffle", action="store_true",
+                        help="do not permute choice options during training")
     args = parser.parse_args()
 
     out = os.path.expanduser(args.out)
@@ -68,7 +72,8 @@ def main():
     base = resolve_base(args.base)
     cfg = TrainConfig(epochs=args.epochs, max_len=args.max_len, head_max_len=args.head_max_len,
                       micro_batch=args.micro_batch, grad_accum=args.grad_accum, seed=args.seed,
-                      shuffle_options=("choice",), log_every=100)
+                      shuffle_options=() if args.no_shuffle else ("choice",),
+                      loss=args.loss, log_every=100)
 
     with tempfile.TemporaryDirectory() as tmp:
         merged = os.path.join(tmp, "train.jsonl")
