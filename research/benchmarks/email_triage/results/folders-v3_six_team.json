@@ -1,0 +1,13 @@
+{
+  "model": "/home/ravichandran/models/laya-email/folders-v3",
+  "metrics": {
+    "n": 30,
+    "category_acc": 0.267,
+    "is_spam_acc": 0.933,
+    "is_phishing_recall": 1.0,
+    "is_phishing_false_positive_rate": 0.042,
+    "urgency_exact_acc": 0.6,
+    "urgency_within_one_acc": 1.0,
+    "needs_reply_acc": 0.933
+  }
+}
