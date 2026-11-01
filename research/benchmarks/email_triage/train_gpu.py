@@ -63,6 +63,8 @@ def main():
     parser.add_argument("--device", default="cuda", help="cuda (also ROCm), cpu, or auto")
     parser.add_argument("--loss", default="rlcd", choices=("rlcd", "soft-ce"),
                         help="rlcd: policy gradient plus soft cross-entropy; soft-ce: soft cross-entropy only")
+    parser.add_argument("--no-amp", action="store_true",
+                        help="train in fp32 (no fp16 autocast); the CPU runs that worked did this")
     parser.add_argument("--no-shuffle", action="store_true",
                         help="do not permute choice options during training")
     args = parser.parse_args()
@@ -73,7 +75,7 @@ def main():
     cfg = TrainConfig(epochs=args.epochs, max_len=args.max_len, head_max_len=args.head_max_len,
                       micro_batch=args.micro_batch, grad_accum=args.grad_accum, seed=args.seed,
                       shuffle_options=() if args.no_shuffle else ("choice",),
-                      loss=args.loss, log_every=100)
+                      loss=args.loss, amp=False if args.no_amp else None, log_every=100)
 
     with tempfile.TemporaryDirectory() as tmp:
         merged = os.path.join(tmp, "train.jsonl")
