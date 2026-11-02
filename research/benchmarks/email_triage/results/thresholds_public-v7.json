@@ -1,0 +1,20 @@
+{
+  "spam": {
+    "n": 400,
+    "move_to_junk_at": 0.0557,
+    "move_flagged_n": 178,
+    "move_legit_share": 0.0169,
+    "rescue_below": 0.9409,
+    "rescue_candidates_n": 229,
+    "rescue_spam_share": 0.0175
+  },
+  "phishing": {
+    "n": 625,
+    "move_to_junk_at": 0.0677,
+    "move_flagged_n": 146,
+    "move_legit_share": 0.0137,
+    "rescue_below": 0.9432,
+    "rescue_candidates_n": 487,
+    "rescue_spam_share": 0.0185
+  }
+}

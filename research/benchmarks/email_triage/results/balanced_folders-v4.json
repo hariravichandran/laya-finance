@@ -1,0 +1,12 @@
+{
+  "model": "/home/ravichandran/models/laya-email/folders-v4",
+  "holdout": "public_holdout_balanced.jsonl",
+  "metrics": {
+    "spam_acc": 0.9625,
+    "spam_n": 400,
+    "phishing_acc": 0.9056,
+    "phishing_precision": 0.9888,
+    "phishing_recall": 0.6027,
+    "phishing_n": 625
+  }
+}

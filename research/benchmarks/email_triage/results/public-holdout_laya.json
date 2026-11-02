@@ -1,0 +1,12 @@
+{
+  "model": "convaiinnovations/laya",
+  "holdout": "public_holdout_1500.jsonl",
+  "metrics": {
+    "spam_acc": 0.992,
+    "spam_n": 1500,
+    "phishing_acc": 0.9927,
+    "phishing_precision": 0.0,
+    "phishing_recall": 0.0,
+    "phishing_n": 822
+  }
+}
