@@ -1,0 +1,44 @@
+{
+  "fomc/test": {
+    "n": 250,
+    "acc": 0.68,
+    "macro_f1": 0.6439811703846149,
+    "unparsed": 0,
+    "ms_per_item": 2121.515015602112
+  },
+  "headline/test": {
+    "n": 250,
+    "acc": 0.784,
+    "macro_f1": 0.7104495538778313,
+    "unparsed": 0,
+    "ms_per_item": 2127.605481147766
+  },
+  "sentiment/test_fiqa": {
+    "n": 193,
+    "acc": 0.8238341968911918,
+    "macro_f1": 0.7189744139125467,
+    "unparsed": 0,
+    "ms_per_item": 1951.4509569177974
+  },
+  "sentiment/test_phrasebank": {
+    "n": 250,
+    "acc": 0.812,
+    "macro_f1": 0.7902645502645503,
+    "unparsed": 0,
+    "ms_per_item": 1733.453953742981
+  },
+  "sentiment/test_twitter": {
+    "n": 250,
+    "acc": 0.74,
+    "macro_f1": 0.7314241486068113,
+    "unparsed": 0,
+    "ms_per_item": 1915.9352407455444
+  },
+  "topic/test": {
+    "n": 250,
+    "acc": 0.652,
+    "macro_f1": 0.5753470724181834,
+    "unparsed": 0,
+    "ms_per_item": 2451.3948831558228
+  }
+}

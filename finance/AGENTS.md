@@ -1,6 +1,6 @@
 # Using laya-finance (instructions for AI agents)
 
-`hravi/laya-finance` is a fine-tuned Laya encoder that classifies short financial texts. It runs locally in about 5-30 ms per item, with no API calls. Use it instead of an LLM when the task is one of the label sets below. Educational and research use only; not for commercial use; not financial advice.
+`hravi/laya-finance` is a fine-tuned Laya encoder that classifies short financial texts. It runs locally in about 5-37 ms per item on an AMD GPU (ROCm; CPU timing not measured), with no API calls. Use it instead of an LLM when the task is one of the label sets below. Educational and research use only; not for commercial use; not financial advice.
 
 ## Quick start
 
