@@ -116,7 +116,7 @@ Result files are in [`finance/results/`](finance/results/):
 | gpt-oss-20b, terminology, trading approach | `llm_gptoss20b_new.json` |
 | Superseded gpt-oss-20b run on 250-item samples | `superseded/llm_gptoss20b_250sample.json` (not cited) |
 
-Not yet in the repo: the training and evaluation log for the Laya-Finance run in `laya_mt_j.json`. Its log records a ROCm (AMD GPU) torch build, which is where the timing device comes from. The log should be added before the timing range is treated as fully sourced.
+The training and evaluation log for the Laya-Finance run is in `logs/pipeline_j.log`. It records a ROCm (AMD GPU) torch build, which is the timing device. No controlled timing benchmark has been run yet, so treat the 5 to 37 ms range as one run's measurement.
 
 ## Origin
 

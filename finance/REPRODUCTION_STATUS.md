@@ -21,7 +21,7 @@ Last updated 2026-11-19. Covers the published checkpoint `hravi/laya-finance` (t
 
 ## Still open
 
-1. **Timing source.** The 5–37 ms range is from one run on an AMD GPU (ROCm). The log for that run (`pipeline_j.log`) is not yet in the repo, and no controlled timing benchmark has been run. Before the range is fully sourced: add the log, and run a benchmark that records device name, GPU idle state, batch size and CPU time.
+1. **Timing source.** The 5–37 ms range is from one run on an AMD GPU (ROCm). The run log is now in `results/logs/pipeline_j.log`. No controlled timing benchmark has been run. To fully source the range, run one that records device name, GPU idle state, batch size and CPU time.
 2. **Branch drift.** `finance/finetune-benchmarks` on GitHub (`e9aa89f`) still holds second-checkpoint numbers. Not changed here; the owner must decide between deleting it and leaving it with a note.
 3. **Hugging Face model card.** The card's gpt-oss figures and FiQA caveat need the same corrections as the README. Not changed; needs owner approval.
 4. **Raw training data.** Not in this repo and not required for the metrics above. It stays in the private corpus repository.
