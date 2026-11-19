@@ -49,7 +49,7 @@ Held-out test accuracy, fp32, one forward pass per item, on the full test set of
 
 Notes:
 
-- PhraseBank is the fair FinBERT comparison, since FinBERT was trained on it. The Twitter and FiQA gains are partly from in-domain training data FinBERT never saw.
+- On PhraseBank both models were trained on the same training split, so that row compares them on the same data; FinBERT's score may partly reflect its own training. The Twitter and FiQA gains are partly from in-domain training data FinBERT never saw.
 - The zero-shot LLM is clearly better on FiQA and slightly better on central-bank stance. On terminology and trading-approach macro-F1, Laya-Finance is level with or slightly ahead of it (0.810 vs 0.805 and 0.690 vs 0.670).
 - The gpt-oss-20b column was rerun on the full test sets on 2026-11-16. The earlier run used random 250-item samples for five tasks; those results are kept in `finance/results/superseded/`. Re-running the same items moved FiQA from 0.824 to 0.834, so expect about one point of run-to-run variation for the LLM.
 - Central-bank stance: the LLM is now ahead by 2.2 points (0.683 vs 0.661) on 496 items. That gap is within noise.
@@ -63,7 +63,7 @@ Laya-Finance is fast enough to screen every item, and its confidence is informat
 
 | Task | All items | Accuracy of the 80% most confident | Share of items answerable at 95% precision |
 |---|---|---|---|
-| Headline direction | 0.948 | 0.991 | 100% |
+| Headline direction | 0.948 | 0.991 | 99.6% |
 | Sentiment, PhraseBank | 0.920 | 0.972 | 90% |
 | Sentiment, Twitter | 0.895 | 0.957 | 83% |
 | Topic | 0.861 | 0.936 | 74% |
