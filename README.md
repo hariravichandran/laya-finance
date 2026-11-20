@@ -116,7 +116,7 @@ Result files are in [`finance/results/`](finance/results/):
 | gpt-oss-20b, terminology, trading approach | `llm_gptoss20b_new.json` |
 | Superseded gpt-oss-20b run on 250-item samples | `superseded/llm_gptoss20b_250sample.json` (not cited) |
 
-The training and evaluation log for the Laya-Finance run is in `logs/pipeline_j.log`. It records a ROCm (AMD GPU) torch build, which is the timing device. Timing results are in `finance/results/latency/` (`latency_gpu_512.json`, `latency_cpu_64.json`), produced by `bench_latency.py`. The GPU idle state was not recorded because `rocm-smi` is not installed on the benchmark machine.
+The training and evaluation log for the Laya-Finance run is in `logs/pipeline_j.log`. It records a ROCm (AMD GPU) torch build, which is the timing device. Timing results are in `finance/results/latency/` (`latency_gpu_512.json`, `latency_cpu_64.json`), produced by `bench_latency.py`. The GPU was idle (0% busy) for the five seconds before the GPU run, and its utilisation during the run is in `gpu_busy_samples_gpu_512.txt`. The benchmark keeps the GPU busy, averaging about 93% during the run.
 
 ## Origin
 

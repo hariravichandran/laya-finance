@@ -16,10 +16,11 @@ def rows_for(task):
     return rows[:n_items]
 
 def gpu_busy():
-    try:
-        return subprocess.run(["rocm-smi", "--showuse"], capture_output=True, text=True, timeout=20).stdout.strip()[-300:]
-    except Exception as e:
-        return f"unavailable: {e}"
+    # amdgpu utilisation counter, percent busy
+    import glob
+    paths = glob.glob("/sys/class/drm/card*/device/gpu_busy_percent")
+    return {p: open(p).read().strip() for p in paths} if paths else "unavailable"
+
 
 agent = laya.load(CKPT, device=device)
 data = {t: rows_for(t) for t in TASKS}

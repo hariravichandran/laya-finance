@@ -21,7 +21,7 @@ Last updated 2026-11-19. Covers the published checkpoint `hravi/laya-finance` (t
 
 ## Still open
 
-1. **Timing source.** Resolved 2026-11-19 with a controlled benchmark (`results/latency/`): median of three repeats on an AMD Radeon 8060S, torch 2.14.1+rocm7.2, laya 0.4.34. GPU: 3–28 ms per item at batch 32, 24–33 ms at batch 1. CPU: 41–395 ms per item at batch 32. Still missing: GPU idle state, because `rocm-smi` is not installed here.
+1. **Timing source.** Resolved 2026-11-19 with a controlled benchmark (`results/latency/`): median of three repeats on an AMD Radeon 8060S, torch 2.14.1+rocm7.2, laya 0.4.34. GPU: 3–28 ms per item at batch 32, 24–33 ms at batch 1. CPU: 41–395 ms per item at batch 32. GPU idle state recorded: 0% busy for the five seconds before the run, about 93% mean during it (`results/latency/gpu_busy_samples_gpu_512.txt`). A rerun gave the same medians within 1%.
 2. **Branch drift.** `finance/finetune-benchmarks` on GitHub (`e9aa89f`) still holds second-checkpoint numbers. Not changed here; the owner must decide between deleting it and leaving it with a note.
 3. **Hugging Face model card.** Updated 2026-11-19 (commit `209a128` on `hravi/laya-finance`) with the full-test-set gpt-oss figures, the timing device, and the PhraseBank note. Weights unchanged.
 4. **Raw training data.** Not in this repo and not required for the metrics above. It stays in the private corpus repository.
