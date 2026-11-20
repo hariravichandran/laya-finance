@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "date": "2026-11-19 20:22:34",
+    "device": "cuda",
+    "gpu": "AMD Radeon 8060S",
+    "torch": "2.14.1+rocm7.2",
+    "hip": "7.2.53211",
+    "laya": "0.4.34",
+    "python": "3.12.15",
+    "checkpoint": "runs/mt_j/final (Laya-Finance J)",
+    "items_per_task": 512,
+    "repeats": 3,
+    "threads": 16,
+    "gpu_busy_before": "unavailable: [Errno 2] No such file or directory: 'rocm-smi'",
+    "gpu_busy_after": "unavailable: [Errno 2] No such file or directory: 'rocm-smi'"
+  },
+  "results": {
+    "bs1/sentiment/test_phrasebank": {
+      "n": 512,
+      "ms_per_item_median": 25.09,
+      "ms_per_item_all": [
+        24.97,
+        25.09,
+        25.09
+      ]
+    },
+    "bs1/topic/test": {
+      "n": 512,
+      "ms_per_item_median": 31.32,
+      "ms_per_item_all": [
+        31.33,
+        31.32,
+        31.32
+      ]
+    },
+    "bs1/fomc/test": {
+      "n": 496,
+      "ms_per_item_median": 25.02,
+      "ms_per_item_all": [
+        25.02,
+        25.02,
+        25.02
+      ]
+    },
+    "bs1/headline/test": {
+      "n": 512,
+      "ms_per_item_median": 23.92,
+      "ms_per_item_all": [
+        23.92,
+        23.92,
+        23.91
+      ]
+    },
+    "bs1/term_domain/test": {
+      "n": 187,
+      "ms_per_item_median": 32.66,
+      "ms_per_item_all": [
+        32.68,
+        32.66,
+        32.66
+      ]
+    },
+    "bs1/trading_style/test_rare": {
+      "n": 280,
+      "ms_per_item_median": 31.83,
+      "ms_per_item_all": [
+        31.83,
+        31.82,
+        31.83
+      ]
+    },
+    "bs32/sentiment/test_phrasebank": {
+      "n": 512,
+      "ms_per_item_median": 6.64,
+      "ms_per_item_all": [
+        6.61,
+        6.65,
+        6.64
+      ]
+    },
+    "bs32/topic/test": {
+      "n": 512,
+      "ms_per_item_median": 15.69,
+      "ms_per_item_all": [
+        15.67,
+        15.69,
+        15.7
+      ]
+    },
+    "bs32/fomc/test": {
+      "n": 496,
+      "ms_per_item_median": 7.81,
+      "ms_per_item_all": [
+        7.81,
+        7.81,
+        7.81
+      ]
+    },
+    "bs32/headline/test": {
+      "n": 512,
+      "ms_per_item_median": 3.25,
+      "ms_per_item_all": [
+        3.24,
+        3.25,
+        3.25
+      ]
+    },
+    "bs32/term_domain/test": {
+      "n": 187,
+      "ms_per_item_median": 28.23,
+      "ms_per_item_all": [
+        28.24,
+        28.23,
+        28.2
+      ]
+    },
+    "bs32/trading_style/test_rare": {
+      "n": 280,
+      "ms_per_item_median": 25.31,
+      "ms_per_item_all": [
+        25.31,
+        25.29,
+        25.33
+      ]
+    }
+  }
+}

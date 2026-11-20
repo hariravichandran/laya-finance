@@ -1,0 +1,95 @@
+[2026-10-11 02:25:37] START merge synth6
+trading_style: +814 train rows {'risk_position_sizing': 351, 'system_validation': 357, 'trend_following': 106}
+term_domain: +0 train rows {}
+dropped {'trend_following->risk_position_sizing': 4, 'system_validation->risk_position_sizing': 3, 'risk_position_sizing->options_volatility': 10, 'trend_following->system_validation': 3, 'trend_following->indicator_construction': 1, 'trend_following->commentary_education': 1, 'trend_following->breakout_momentum': 5}
+[2026-10-11 02:25:37] END rc=0
+trading_style/val.jsonl: OK
+trading_style/test.jsonl: OK
+trading_style/test_opus.jsonl: OK
+trading_style/test_rare.jsonl: OK
+term_domain/val.jsonl: OK
+term_domain/test.jsonl: OK
+term_domain/test_opus.jsonl: OK
+J encoder init: 'runs/dapt_final/encoder.safetensors'
+[2026-10-11 02:25:37] START finetune arm J (v4 labels, balanced)
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.7.1+rocm7.2.2.git1dab218d).
+overlaid encoder weights from runs/dapt_final/encoder.safetensors
+/home/ravichandran/Documents/GitHub/ollama-forge/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1341: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:29.)
+  return t.to(
+sentiment  train= 13438 (dropped 0) val=707
+topic      train=  8000 (dropped 0) val=849
+fomc       train=  1727 (dropped 0) val=191
+headline   train=  8373 (dropped 0) val=440
+term_domain train=  8978 (dropped 0) val=187
+trading_style balanced counts: {'breakout_momentum': 900, 'commentary_education': 1500, 'indicator_construction': 980, 'mean_reversion': 1028, 'options_volatility': 937, 'risk_position_sizing': 900, 'seasonality_cycles': 900, 'spreads_arbitrage': 1038, 'system_validation': 900, 'trend_following': 900}
+trading_style train=  9983 (dropped 0) val=224
+epoch 0 (zero-shot) val bal-acc: {'sentiment': 0.758, 'topic': 0.371, 'fomc': 0.348, 'headline': 0.584, 'term_domain': 0.518, 'trading_style': 0.246} mean=0.4545
+  epoch 1 batch 200/3157 ce=1.3172
+  epoch 1 batch 400/3157 ce=1.1388
+  epoch 1 batch 600/3157 ce=1.0677
+  epoch 1 batch 800/3157 ce=1.0076
+  epoch 1 batch 1000/3157 ce=0.9647
+  epoch 1 batch 1200/3157 ce=0.9293
+  epoch 1 batch 1400/3157 ce=0.9003
+  epoch 1 batch 1600/3157 ce=0.8792
+  epoch 1 batch 1800/3157 ce=0.8597
+  epoch 1 batch 2000/3157 ce=0.8434
+  epoch 1 batch 2200/3157 ce=0.8268
+  epoch 1 batch 2400/3157 ce=0.8130
+  epoch 1 batch 2600/3157 ce=0.8014
+  epoch 1 batch 2800/3157 ce=0.7901
+  epoch 1 batch 3000/3157 ce=0.7819
+epoch 1 train_ce=0.7757 val bal-acc: {'sentiment': 0.802, 'topic': 0.837, 'fomc': 0.521, 'headline': 0.911, 'term_domain': 0.803, 'trading_style': 0.68} mean=0.7772
+  epoch 2 batch 200/3157 ce=0.5763
+  epoch 2 batch 400/3157 ce=0.5883
+  epoch 2 batch 600/3157 ce=0.5876
+  epoch 2 batch 800/3157 ce=0.5875
+  epoch 2 batch 1000/3157 ce=0.5808
+  epoch 2 batch 1200/3157 ce=0.5794
+  epoch 2 batch 1400/3157 ce=0.5779
+  epoch 2 batch 1600/3157 ce=0.5761
+  epoch 2 batch 1800/3157 ce=0.5755
+  epoch 2 batch 2000/3157 ce=0.5742
+  epoch 2 batch 2200/3157 ce=0.5724
+  epoch 2 batch 2400/3157 ce=0.5715
+  epoch 2 batch 2600/3157 ce=0.5721
+  epoch 2 batch 2800/3157 ce=0.5704
+  epoch 2 batch 3000/3157 ce=0.5699
+epoch 2 train_ce=0.5695 val bal-acc: {'sentiment': 0.839, 'topic': 0.874, 'fomc': 0.59, 'headline': 0.925, 'term_domain': 0.826, 'trading_style': 0.647} mean=0.7879
+  epoch 3 batch 200/3157 ce=0.5074
+  epoch 3 batch 400/3157 ce=0.5051
+  epoch 3 batch 600/3157 ce=0.5051
+  epoch 3 batch 800/3157 ce=0.5024
+  epoch 3 batch 1000/3157 ce=0.5070
+  epoch 3 batch 1200/3157 ce=0.5086
+  epoch 3 batch 1400/3157 ce=0.5059
+  epoch 3 batch 1600/3157 ce=0.5070
+  epoch 3 batch 1800/3157 ce=0.5075
+  epoch 3 batch 2000/3157 ce=0.5062
+  epoch 3 batch 2200/3157 ce=0.5052
+  epoch 3 batch 2400/3157 ce=0.5054
+  epoch 3 batch 2600/3157 ce=0.5059
+  epoch 3 batch 2800/3157 ce=0.5060
+  epoch 3 batch 3000/3157 ce=0.5052
+epoch 3 train_ce=0.5053 val bal-acc: {'sentiment': 0.857, 'topic': 0.87, 'fomc': 0.649, 'headline': 0.924, 'term_domain': 0.833, 'trading_style': 0.672} mean=0.8011
+restored best epoch (mean val bal-acc=0.8011)
+temperatures by bucket: {'choice:3-5': 1.062, 'choice:11+': 1.033, 'noul:2': 0.792, 'choice:6-10': 1.141}
+saved runs/mt_j/final
+[2026-10-11 10:38:03] END rc=0
+[2026-10-11 10:38:03] START eval arm J
+Skipping import of cpp extensions due to incompatible torch version. Please upgrade to torch >= 2.11.0 (found 2.7.1+rocm7.2.2.git1dab218d).
+/home/ravichandran/Documents/GitHub/ollama-forge/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py:1341: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:29.)
+  return t.to(
+laya_mt_j          fomc/test                n=  496 acc=0.661 macroF1=0.622 ece=0.119
+laya_mt_j          headline/test            n= 2700 acc=0.948 macroF1=0.925 ece=0.016 auroc=0.984 f1_yes=0.884
+laya_mt_j          sentiment/test_fiqa      n=  193 acc=0.731 macroF1=0.641 ece=0.152
+laya_mt_j          sentiment/test_phrasebank n=  969 acc=0.920 macroF1=0.917 ece=0.043
+laya_mt_j          sentiment/test_twitter   n= 2388 acc=0.895 macroF1=0.872 ece=0.051
+laya_mt_j          term_domain/test         n=  187 acc=0.877 macroF1=0.810 ece=0.064
+laya_mt_j          term_domain/test_opus    n=  187 acc=0.866 macroF1=0.770 ece=0.067
+laya_mt_j          topic/test               n= 4117 acc=0.861 macroF1=0.848 ece=0.039
+laya_mt_j          trading_style/test       n=  224 acc=0.786 macroF1=0.690 ece=0.080
+laya_mt_j          trading_style/test_opus  n=  224 acc=0.790 macroF1=0.660 ece=0.091
+laya_mt_j          trading_style/test_rare  n=  280 acc=0.736 macroF1=0.611 ece=0.093
+[2026-10-11 10:41:02] END rc=0
+[2026-10-11 10:41:02] J PIPELINE DONE

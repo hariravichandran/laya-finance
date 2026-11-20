@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "date": "2026-11-19 20:01:42",
+    "device": "cpu",
+    "gpu": "x86_64",
+    "torch": "2.14.1+rocm7.2",
+    "hip": "7.2.53211",
+    "laya": "0.4.34",
+    "python": "3.12.15",
+    "checkpoint": "runs/mt_j/final (Laya-Finance J)",
+    "items_per_task": 64,
+    "repeats": 3,
+    "threads": 16,
+    "gpu_busy_before": null,
+    "gpu_busy_after": null
+  },
+  "results": {
+    "bs32/sentiment/test_phrasebank": {
+      "n": 64,
+      "ms_per_item_median": 79.86,
+      "ms_per_item_all": [
+        78.86,
+        81.24,
+        79.86
+      ]
+    },
+    "bs32/topic/test": {
+      "n": 64,
+      "ms_per_item_median": 180.92,
+      "ms_per_item_all": [
+        180.92,
+        178.56,
+        181.4
+      ]
+    },
+    "bs32/fomc/test": {
+      "n": 64,
+      "ms_per_item_median": 79.24,
+      "ms_per_item_all": [
+        78.97,
+        79.24,
+        79.4
+      ]
+    },
+    "bs32/headline/test": {
+      "n": 64,
+      "ms_per_item_median": 40.8,
+      "ms_per_item_all": [
+        41.83,
+        40.51,
+        40.8
+      ]
+    },
+    "bs32/term_domain/test": {
+      "n": 64,
+      "ms_per_item_median": 395.02,
+      "ms_per_item_all": [
+        395.66,
+        395.02,
+        390.64
+      ]
+    },
+    "bs32/trading_style/test_rare": {
+      "n": 64,
+      "ms_per_item_median": 341.19,
+      "ms_per_item_all": [
+        341.19,
+        340.75,
+        350.93
+      ]
+    }
+  }
+}

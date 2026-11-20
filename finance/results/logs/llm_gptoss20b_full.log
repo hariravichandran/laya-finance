@@ -1,0 +1,6 @@
+llm_gptoss20b_full fomc/test                n=  496 acc=0.683 macroF1=0.663 unparsed=0 2086ms/item
+llm_gptoss20b_full headline/test            n= 2700 acc=0.792 macroF1=0.714 unparsed=0 2004ms/item
+llm_gptoss20b_full sentiment/test_fiqa      n=  193 acc=0.834 macroF1=0.728 unparsed=0 1923ms/item
+llm_gptoss20b_full sentiment/test_phrasebank n=  969 acc=0.819 macroF1=0.797 unparsed=0 1692ms/item
+llm_gptoss20b_full sentiment/test_twitter   n= 2388 acc=0.745 macroF1=0.726 unparsed=0 1908ms/item
+llm_gptoss20b_full topic/test               n= 4117 acc=0.677 macroF1=0.647 unparsed=0 2424ms/item
